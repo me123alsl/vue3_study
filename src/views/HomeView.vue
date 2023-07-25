@@ -7,8 +7,16 @@
     </div>
 </template>
 <script>
+import { useStore } from 'vuex'
 export default {
-
+    name: 'HomeView',
+   setup() {
+        const store = useStore();
+        const title = store.dispatch('contents/setTitle', 'Home');
+        return {
+            title
+        }
+   }
 }
 </script>
 <style></style>

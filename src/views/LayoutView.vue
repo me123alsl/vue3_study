@@ -2,7 +2,7 @@
     <div>
         <SidebarMenu :menu="menu" @update:collapsed="onToggleCollapse"
         ></SidebarMenu>
-        <div id="contents" :class="changeMenuCollapsed ?  'contents' : 'contents-collapsed'">
+        <div :class="changeMenuCollapsed ?  'contents' : 'contents-collapsed'">
             <ContentsViewVue></ContentsViewVue>
         </div>
     </div>
@@ -43,9 +43,10 @@ export default {
                     href: '/component',
                     title: 'Component',
                     icon: 'fa fa-chart-area',
+                    hiddenOnCollapse: false,
                     child: [
                         {
-                            href: '/charts/completeList',
+                            href: '/component/installed',
                             title: 'Installed'
                         }
                     ]

@@ -1,19 +1,30 @@
+import { TITLE } from '../mutation-type';
 const state = {
-    header: 'header',
+    title: 'default title',
 };
 
 const mutations = {
-    setHeader (state, payload) {
-        state.header = payload.header;
+    [TITLE.SET_TITLE](state, payload) {
+        state.title = payload;
     }
 };
 
 const getters = {
-    header: state => state.header,
+    title(state) {
+        return state.title;
+    }
+};
+
+const actions = {
+    setTitle({ commit }, payload) {
+        commit(TITLE.SET_TITLE, payload);
+    }
 };
 
 export default {
+    namespaced: true,
     state,
     mutations,
-    getters
+    getters,
+    actions
 };
