@@ -106,3 +106,28 @@ app.use(router);
 ``` bash
 npm install vuex@next
 ```
+
+``` javascript
+// vuex store 생성
+import { createStore } from "vuex";
+import createPersistedState from "vuex-persistedstate";
+
+import user from "@/store/modules/user";
+import contents from "@/store/modules/contents";
+
+const store = createStore({
+    modules: {
+        user, 
+        contents
+    },
+  plugins: [createPersistedState()], 
+});
+
+export default store;
+```
+
+``` javascript
+// main.js 추가
+import store from "@/store";
+app.use(store);
+```
